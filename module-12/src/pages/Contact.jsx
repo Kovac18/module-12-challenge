@@ -4,19 +4,35 @@ export default function Contact() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const submit = (event) => {event.preventDefault();};
     const validateEmail = () => {
-        if(e.target?.value && e.target.value.match('@')){
-            showNoValidEmail(false);
-            setEmail(e.target.value)
+        if(email !== ''){
+            if(email.match('@.')){
+                return<p> </p>
+            } else {
+                return<p>Please enter a valid email</p>
+            }
         } else {
-            showNoValidEmail(true);
+            return<p>Please enter a email!</p>
+        }
+    }
+    const validateName = () => {
+        if (name === ''){
+            return <p>Please enter a name!</p>
+        } else {
+            return <p> </p>
+        }
+    }
+    const validateMessage = () => {
+        if(message === ''){
+            return<p>Please enter a message!</p>
+        } else {
+            return<p> </p>
         }
     }
     return (
         <div>
             <h1>Contact</h1>
-            <form onSubmit={submit}>
+            <form className="contactForm">
                 <label>
                     Name:
                     <input
@@ -30,7 +46,7 @@ export default function Contact() {
                     <input 
                         type="email"
                         value={email}
-                        onChange={() => validateEmail()}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </label>
                 <label>
@@ -41,8 +57,13 @@ export default function Contact() {
                         onChange={(e) => setMessage(e.target.value)}
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" className="button">Submit</button>
             </form>
+            <div className="validate">
+                {validateName()}
+                {validateEmail()}
+                {validateMessage()}
+            </div>
         </div>
     )
 }
