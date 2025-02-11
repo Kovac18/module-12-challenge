@@ -3,6 +3,7 @@ import { useState } from "react"
 export default function Contact() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
     const submit = (event) => {event.preventDefault();};
     const validateEmail = () => {
         if(e.target?.value && e.target.value.match('@')){
@@ -32,7 +33,14 @@ export default function Contact() {
                         onChange={() => validateEmail()}
                     />
                 </label>
-                
+                <label>
+                    Message:
+                    <input 
+                        type="text"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
+                </label>
                 <button type="submit">Submit</button>
             </form>
         </div>
