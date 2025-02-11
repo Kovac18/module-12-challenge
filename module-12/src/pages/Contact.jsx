@@ -39,6 +39,7 @@ export default function Contact() {
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        className="inputs"
                     />
                 </label>
                 <label>
@@ -47,6 +48,7 @@ export default function Contact() {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="inputs"
                     />
                 </label>
                 <label>
@@ -55,6 +57,7 @@ export default function Contact() {
                         type="text"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
+                        className="messageInput"
                     />
                 </label>
                 <button type="submit" className="button">Submit</button>
